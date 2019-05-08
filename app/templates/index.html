@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <h1 class="col mt-4">Shu Jamvanu Banavu?</h1>
+        </div>
+        <div class="row">
+            <form action="" method="post" novalidate id="formBox" class="col-4 p-3 my-5">
+                {{ form.hidden_tag() }}
+        
+                <div class="p-2">
+                    {{ form.mealtime }}
+                </div>
+        
+                <div class="m-3">
+                    {{ form.submit }}
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <p>{{ fp.printStatement(form.mealtime.data) }}</p>
+        </div>
+    </div>
+{% endblock %}
