@@ -1,1 +1,1 @@
-web: python food-selector.py
+web: flask run
