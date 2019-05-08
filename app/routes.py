@@ -16,4 +16,4 @@ def index():
     return render_template('index.html', title="Food Generator", form=form, fp=fp)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=33507)
+    app.run()
