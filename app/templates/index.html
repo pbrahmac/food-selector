@@ -1,25 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <h1 class="col mt-4">Shu Jamvanu Banavu?</h1>
+    <div class="container-fluid">
+        <div class="row align-items-center justify-content-center" id="row1"> <!-- row 1 -->
+            <h1 class="col-auto">Hmm... What Should I Make?</h1> <!-- row 1 col 1 -->
         </div>
-        <div class="row">
-            <form action="" method="post" novalidate id="formBox" class="col-4 p-3 my-5">
-                {{ form.hidden_tag() }}
-        
-                <div class="p-2">
-                    {{ form.mealtime }}
-                </div>
-        
-                <div class="m-3">
-                    {{ form.submit }}
-                </div>
-            </form>
-        </div>
-        <div class="row">
-            <p>{{ fp.printStatement(form.mealtime.data) }}</p>
+        <form class="row align-items-center justify-content-center mt-5" action="" method="post" novalidate id="row2"> <!-- row 2 -->
+            {{ form.hidden_tag() }}
+            
+            {{ form.mealtime(class_="col-auto col-md-auto mb-2 mr-md-2 mb-md-0") }}
+            <div class="w-100 d-inline d-md-none"></div>
+            {{ form.submit(class_="col-auto col-md-auto", id="submitButton") }}
+        </form>
+        <div class="row align-items-center justify-content-center" id="row3"> <!-- row 3 -->
+            <div class="col-12"> <!-- row 3 col 1 -->
+                <p>{{ fp.printStatement(form.mealtime.data) }}</p>
+            </div>
         </div>
     </div>
 {% endblock %}
