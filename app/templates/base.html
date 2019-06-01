@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+    {% if title %}{{ title }}{% else %}Welcome to Food Selector!{% endif %}
+{% endblock %}
+
+<!-- <!DOCTYPE html>
 <html>
     <head>
         <title>{{ title }}</title>
@@ -8,7 +14,19 @@
         <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </head>
-    <body>
-        {% block content %}{% endblock %}
-    </body>
-</html>
+    <body> -->
+{% block content %}
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    
+        {% block app_content %}{% endblock %}
+    </div>
+{% endblock %}
+    <!-- </body>
+</html> -->

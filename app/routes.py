@@ -11,9 +11,9 @@ def index():
     fp = FoodProcessor()
     fp.addInfo()
     if form.validate_on_submit():
-        return render_template('index.html', title="Food Generator", form=form, fp=fp)
+        return render_template('index.html', title="Food Selector", form=form, fp=fp)
         
-    return render_template('index.html', title="Food Generator", form=form, fp=fp)
+    return render_template('index.html', title="Food Selector", form=form, fp=fp)
 
 if __name__ == '__main__':
     app.run()

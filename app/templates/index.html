@@ -1,21 +1,33 @@
 {% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
 
-{% block content %}
-    <div class="container-fluid">
-        <div class="row align-items-center justify-content-center" id="row1"> <!-- row 1 -->
-            <h1 class="col-auto">Hmm... What Should I Make?</h1> <!-- row 1 col 1 -->
+{% block app_content %}
+    <h1>What Should I Make?</h1>
+    <div class="row">
+        <div class="col-md-4">
+            {{ wtf.quick_form(form, button_map={'submit':'primary'}) }}
         </div>
-        <form class="row align-items-center justify-content-center mt-5" action="" method="post" novalidate id="row2"> <!-- row 2 -->
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            {{ fp.printStatement(form.mealtime.data) }}
+        </div>
+    </div>
+<!-- <div class="container-fluid">
+        <div class="row align-items-center justify-content-center" id="row1">
+            <h1>Hmm... What Should I Make?</h1>
+        </div>
+        <form class="row align-items-center justify-content-center mt-5" action="" method="post" novalidate id="row2">
             {{ form.hidden_tag() }}
             
             {{ form.mealtime(class_="col-auto col-md-auto mb-2 mr-md-2 mb-md-0", id="dropDown") }}
             <div class="w-100 d-inline d-md-none"></div>
             {{ form.submit(class_="col-auto col-md-auto", id="submitButton") }}
         </form>
-        <div class="row align-items-center justify-content-center mt-4" id="row3"> <!-- row 3 -->
-            <div class="col-12"> <!-- row 3 col 1 -->
+        <div class="row align-items-center justify-content-center mt-4" id="row3">
+            <div class="col-12">
                 <p style="text-align:center;">{{ fp.printStatement(form.mealtime.data) }}</p>
             </div>
         </div>
-    </div>
+    </div> -->
 {% endblock %}
