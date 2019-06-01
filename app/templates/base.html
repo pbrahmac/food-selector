@@ -4,17 +4,11 @@
     {% if title %}{{ title }}{% else %}Welcome to Food Selector!{% endif %}
 {% endblock %}
 
-<!-- <!DOCTYPE html>
-<html>
-    <head>
-        <title>{{ title }}</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" >
-        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    </head>
-    <body> -->
+{% block styles %}
+{{ super() }}
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+{% endblock %}
+
 {% block content %}
     <div class="container">
         {% with messages = get_flashed_messages() %}
@@ -28,5 +22,3 @@
         {% block app_content %}{% endblock %}
     </div>
 {% endblock %}
-    <!-- </body>
-</html> -->
